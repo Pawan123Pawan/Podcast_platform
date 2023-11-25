@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 0;
+}
+.link > a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 22px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.container {
+  position: absolute;
+  top: -100px;
+  background: #18b2de;
+  filter: blur(70px);
+  width: 600px;
+  height: 139px;
+  float: right;
+}
+
+.active {
+  color: rgba(255, 255, 255, 1) !important;
+}

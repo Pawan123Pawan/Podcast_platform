@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto&display=swap');
+body{
+    background: #20062E;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --theme: #20062E;
+    --color :#8F8297;
+}
+
+#root{
+    overflow: hidden;
+    /* overflow-y: scroll; */
+}
