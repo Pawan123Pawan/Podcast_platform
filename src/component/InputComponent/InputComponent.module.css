@@ -7,11 +7,15 @@
     font-size: 20px;
     font-weight: 400;
     min-width: 250px;
-    color: #8F8297;
+    color: white;
     margin-bottom: 1.2rem;
 }
 
 .custum_input:focus{
     outline: none;
     border: 2px solid white;
+}
+
+.imput_placeholder{
+    color: rgba(255, 255, 255, 0.50);
 }

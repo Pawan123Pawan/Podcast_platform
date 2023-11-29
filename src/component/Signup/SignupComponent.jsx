@@ -7,18 +7,21 @@ import { useDispatch } from "react-redux";
 import { doc, setDoc } from "firebase/firestore";
 import { setUser } from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function SignupComponent() {
-  const [fullname, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmpassword, setConfirmPassword] = useState();
+  const [fullname, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleButton() {
     console.log("dsjdlksd");
+    setLoading(true);
     if (password === confirmpassword && password.length > 6) {
       try {
         // creating an account user
@@ -45,13 +48,21 @@ function SignupComponent() {
             uid: user.uid,
           })
         );
-
+        toast.success("User saved successfully")
+        setLoading(false);
         navigate("/profile");
       } catch (error) {
-        console.log("error occured " + error);
+        toast.error(error.message);
+        setLoading(false);
       }
     } else {
-      console.log("passwords dont match");
+      if(password !== confirmpassword){
+        toast.error("Password did not match. Please try again")
+      }
+      else if(password.length<6){
+        toast.error("Password must be at least 6 characters long. Please try again")
+      }
+      setLoading(false);
     }
   }
 
@@ -81,7 +92,7 @@ function SignupComponent() {
         hadleChange={(e) => setConfirmPassword(e.target.value)}
         placeholder={"Confirm Password"}
       />
-      <CustomButton onclick={handleButton} value="Signup" />
+      <CustomButton onclick={handleButton} disabled ={loading} value={loading?"Loading..":"Signup"} />
     </>
   );
 }

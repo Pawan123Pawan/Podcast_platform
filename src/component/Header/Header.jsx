@@ -14,10 +14,10 @@ function Header() {
         <NavLink to="/" className={currentPath==="/" ? styles.active : ""} >
           SignUp
         </NavLink>
-        <NavLink to="/podcast" className={currentPath==="/podcast" ? styles.active : ""}>
+        <NavLink to="/podcasts" className={currentPath==="/podcasts" ? styles.active : ""}>
           Podcast
         </NavLink>
-        <NavLink to="/start-a-podcast" className={currentPath==="/start-a-podcast" ? styles.active : ""}>
+        <NavLink to="/create_podcast" className={currentPath==="/create_podcast" ? styles.active : ""}>
           Start A Podcast
         </NavLink>
         <NavLink to="/profile" className={currentPath==="/profile" ? styles.active : ""}>
